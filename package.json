@@ -1,0 +1,23 @@
+{
+  "name": "web_crawler",
+  "version": "1.0.0",
+  "main": "shy.js",
+  "scripts": {
+    "start": "node shy.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/22007sujal/web-crawler.git"
+  },
+  "author": "sujal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/22007sujal/web-crawler/issues"
+  },
+  "homepage": "https://github.com/22007sujal/web-crawler#readme",
+  "description": "",
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}
