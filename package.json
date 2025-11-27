@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "shy.js",
   "scripts": {
-    "start": "node shy.js",
+    "start": "node main.js",
     "test": "jest"
   },
   "repository": {
@@ -19,5 +19,12 @@
   "description": "",
   "devDependencies": {
     "jest": "^30.2.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {}
+  },
+  "dependencies": {
+    "jsdom": "^19.0.0"
   }
 }

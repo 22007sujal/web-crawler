@@ -1,5 +1,6 @@
-const { normalizeURL } = require("./shy");
+const { normalizeURL, getURLsfromHTML } = require("./shy");
 const {test , expect} = require("@jest/globals");
+
 
 
 test('normalizeURL', () => {
@@ -34,4 +35,49 @@ test('normalizeURL strips http', () => {
 });
 
 
+test('getURLsfromHTML' , () => {
+    const htmlbody = `
+    <html>
+    <body>
+     <a href="https://sujal.com/"></a>
+    </body>
+    </html>`;
+    const baseURL = "https://sujal.com";
+    const response = getURLsfromHTML(htmlbody , baseURL);
+    const expected = ["https://sujal.com/"];
+    expect(response).toEqual(expected);
+})
+
+test('getURLsfromHTML with relative url' , () => {
+    const htmlbody = `
+    <html>
+    <body>
+     <a href = "https://sujal.com/path1"></a>
+     <a href="/path2"></a>
+    </body>
+    </html>`;
+    const baseURL = "https://sujal.com";
+    const response = getURLsfromHTML(htmlbody , baseURL);
+    console.log(response);
+    const expected = ["https://sujal.com/path1" , "https://sujal.com/path2"];
+
+    expect(response).toEqual(expected);
+})
+
+
+
+test('getURLsfromHTML with invalid url' , () => {
+    const htmlbody = `
+    <html>
+    <body>
+     <a href = "invalid"></a>
+    </body>
+    </html>`;
+    const baseURL = "https://sujal.com";
+    const response = getURLsfromHTML(htmlbody , baseURL);
+    console.log(response);
+    const expected = [];
+
+    expect(response).toEqual(expected);
+})
 
